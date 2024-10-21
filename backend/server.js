@@ -6,6 +6,7 @@ const cors = require('cors')
 // requisições criadas
 
 const db = require('./database/db')
+const routes = require('./routes/routes')
 
 
 // conectando ao banco de dados
@@ -13,6 +14,8 @@ const db = require('./database/db')
 db.connect()
 
 // rotas
+
+app.use('listly', routes)
 
 //
 
