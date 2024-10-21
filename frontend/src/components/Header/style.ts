@@ -25,7 +25,7 @@ export const StyledButton = styled.button<{$isActive: boolean}>`
     background-color: white;
     border-radius: 50%;
     margin: 3px;
-    border: 1px solid black;
+    
     cursor: pointer;
     transition: all 300ms ease-in-out;
     color: black;
@@ -34,7 +34,7 @@ export const StyledButton = styled.button<{$isActive: boolean}>`
     ${({ $isActive }) => $isActive ? `
         color: white;
         background-color: #5E6572;
-        border: 1px solid #4b484845;
+        border: none;
 
         &:hover {
             color: white;
@@ -43,8 +43,8 @@ export const StyledButton = styled.button<{$isActive: boolean}>`
         }
     ` : `
         color: black;
-        background-color: whtie;
-        border: 1px solid black;
+        background-color: white;
+        border: none;
         &:hover {
             background-color: #A9B4C2;
             color: white;

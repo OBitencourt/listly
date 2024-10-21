@@ -21,5 +21,5 @@ export const ListCard = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 2px;
+    margin-top: 5px;
 `
