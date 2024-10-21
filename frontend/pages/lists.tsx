@@ -1,4 +1,6 @@
 import { Container, Typography } from "@mui/material"
+import ListCard from '@/src/components/List/ListCard'
+import { Card } from "@/src/components/List/style"
 
 const Lists = () => {
 
@@ -21,6 +23,16 @@ const Lists = () => {
                 >
                     Veja suas Listas
                 </Typography>
+
+                <Card>
+
+                    <ListCard 
+                        title='Primeira Lista'
+                    />
+                    <ListCard 
+                        title='Segunda Lista'
+                    />
+                </Card>
                 
             </Container>
         </>
