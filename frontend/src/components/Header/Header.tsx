@@ -2,16 +2,30 @@
 import React from 'react';
 import { StyledButton, StyledHeader, StyledNav } from './style';
 
+import { useRouter } from 'next/router';
+
 const Header = () => {
+
+    const router = useRouter()
+
+    const handleNav = (path: string) => {
+        router.push(path)
+    }
 
     return (
        <>
             <StyledHeader>
                 <StyledNav>
-                    <StyledButton>
+                    <StyledButton
+                        $isActive={router.pathname === '/'}
+                        onClick={() => handleNav('/')}
+                    >
                         Home
                     </StyledButton>
-                    <StyledButton>
+                    <StyledButton
+                        $isActive={router.pathname === '/lists'}
+                        onClick={() => handleNav('/lists')}
+                    >
                         Lists
                     </StyledButton>
                 </StyledNav>
