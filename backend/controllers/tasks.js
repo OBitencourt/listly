@@ -39,9 +39,14 @@ const postTask = async (req, res) => {
 
 // Obter todas as tasks
 const getTasks = async (req, res) => {
+
+    const { id } = req.params
+
     try {
-        const tasks = await TasksModel.find(); // Buscar todas as tasks
+        let obj = id ? { _id: id } : {}
+        const tasks = await TasksModel.find(obj); // Buscar todas as tasks
         return res.status(200).json(tasks);
+ 
     } catch (error) {
         return res.status(500).json({ message: 'Erro ao buscar tasks', error });
     }

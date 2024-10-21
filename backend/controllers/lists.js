@@ -15,8 +15,13 @@ const createList = async (req, res) => {
 
 // Obter listas (todas ou por ID)
 const getLists = async (req, res) => {
+
+    const { id }  = req.params
+
     try {
-        const lists = await ListsModel.find().populate('tasks'); // Usando populate para trazer as tarefas
+
+        let obj = id ? { _id: id } : {}
+        const lists = await ListsModel.find(obj).populate('tasks'); // Usando populate para trazer as tarefas
         return res.status(200).json(lists);
     } catch (error) {
         return res.status(500).json({ message: 'Erro ao buscar listas', error });
