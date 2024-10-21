@@ -11,12 +11,11 @@ const TaskSchema = new mongoose.Schema({
         default: Date.now,
     },
 
-    /*
     listId: {
-        type: Schema.Types.ObjectId, 
-        ref: 'List', // Referência ao model da lista
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'lists', // Referência ao model da lista
         required: true,
-    },*/
+    },
 })
 
 const TasksModel = mongoose.model('tasks', TaskSchema)

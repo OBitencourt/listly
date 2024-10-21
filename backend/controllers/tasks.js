@@ -1,23 +1,38 @@
 const TasksModel = require('../models/tasks')
+const ListsModel = require('../models/lists')
 
 // Criar uma nova task
 
 const postTask = async (req, res) => {
-
-    const { task /*, listId */} = req.body; // Supondo que você também quer passar o listId
-
-    
     try {
+        const { task, listId } = req.body;
 
-        const newTask = new TasksModel({ task /*, listId */});
-        await newTask.save();
+        // Verificação dos campos
+        if (!task || !listId) {
+            return res.status(400).json({ message: "Task e listId são obrigatórios." });
+        }
 
+        // Criar a nova tarefa
+        const newTask = await TasksModel.create({ task, listId }); // Salvar a tarefa no banco
 
-        return res.status(201).json(newTask);
+        // Adicionar a tarefa ao array de tarefas da lista
+        await ListsModel.findByIdAndUpdate(
+            listId,
+            {
+                $push: {
+                    tasks: {
+                        task: newTask.task, // Nome da tarefa
+                        createdAt: newTask.createdAt // Data de criação da tarefa
+                    }
+                }
+            },
+            { new: true }
+        );
+
+        res.status(201).json(newTask); // Retorna a nova tarefa criada
     } catch (error) {
-        return res.status(400).json({ message: 'Erro ao criar a task', error });
+        res.status(400).json({ message: "Erro ao criar a task", error });
     }
-
 };
 
 // Obter todas as tasks
