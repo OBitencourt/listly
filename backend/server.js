@@ -5,7 +5,13 @@ const cors = require('cors')
 
 // requisições criadas
 
-// mongodb
+const db = require('./database/db')
+
+
+// conectando ao banco de dados
+
+db.connect()
+
 // rotas
 
 //
