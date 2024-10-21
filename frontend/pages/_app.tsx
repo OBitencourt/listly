@@ -15,9 +15,10 @@ export default function MyApp(props: AppProps) {
     return (
         <React.Fragment>
             <Head>
-                <title>Barbershop</title>
-                <link rel="icon" href="/images/barber-beauty-salon.ico" />
+                <title>Listly</title>
+                <link rel="icon" href="/images/clipboard.ico" />
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+                <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
             </Head>
             <TemplateDefault>
                 <ThemeProvider theme={theme}>
