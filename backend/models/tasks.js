@@ -10,7 +10,8 @@ const TaskSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-      /*
+
+    /*
     listId: {
         type: Schema.Types.ObjectId, 
         ref: 'List', // Referência ao model da lista

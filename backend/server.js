@@ -3,6 +3,13 @@
 const express = require('express')
 const cors = require('cors')
 
+const app = express()
+app.use(cors())
+
+// configuring server to receive datas in json
+
+app.use(express.json())
+
 // requisições criadas
 
 const db = require('./database/db')
@@ -15,18 +22,12 @@ db.connect()
 
 // rotas
 
-app.use('listly', routes)
+app.use('/listly', routes)
 
 //
 
-const app = express()
 
 
-app.use(cors())
-
-// configuring server to receive datas in json
-
-app.use(express.json())
 
 // 404 error (not found)
 
