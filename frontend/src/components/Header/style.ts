@@ -15,20 +15,21 @@ export const StyledNav = styled.nav`
     display: flex;
     justify-content: space-between;
     padding: 2px;
-    border-radius: .8em;
+    border-radius: 50px / 60px;
     
 `
 
 export const StyledButton = styled.button<{$isActive: boolean}>`
-    width: 100px;
+    width: 50px;
     padding: 10px;
     background-color: white;
-    border-radius: .8em;
+    border-radius: 50%;
     margin: 3px;
     border: 1px solid black;
     cursor: pointer;
     transition: all 300ms ease-in-out;
     color: black;
+    // display: flex;
 
     ${({ $isActive }) => $isActive ? `
         color: white;

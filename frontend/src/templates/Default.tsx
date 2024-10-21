@@ -1,6 +1,8 @@
 import React from 'react'
-// import Footer from '../components/Footer/Footer'
+
 import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
+
 
 interface DefaultProps {
     children: React.ReactNode;
@@ -13,7 +15,7 @@ const Default = ({children}: DefaultProps) => {
             {/* Maybe a header? */}
             <Header />
             {children}
-            <footer></footer>
+            <Footer />
         </>
     )
 }
