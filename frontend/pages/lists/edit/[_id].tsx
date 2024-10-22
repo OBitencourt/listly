@@ -1,5 +1,5 @@
 
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { StyledBox, StyledButton, TasksWrapper } from "./style";
@@ -21,15 +21,19 @@ const Edit = () => {
     console.log(_id)
 
     const [tasks, setTasks] = useState<Tasks[]>([])
-
+    const [title, setTitle] = useState('')
     useEffect(() => {
 
         axios.get(`http://localhost:8080/listly/lists/${_id}`)
             .then(response => {
+
+                
                 const data = response.data
+
+                const listTitle = data[0].title
                 const tasks = data[0].tasks
                 
-
+                setTitle(listTitle)
                 setTasks(tasks)
             })
 
@@ -52,6 +56,15 @@ const Edit = () => {
                         md={8}
                     >
                         <StyledBox $isBig>
+                            <Typography
+                                variant="h5"
+                                sx={{
+                                    margin: 1
+                                }}
+                            >
+                                {title}
+
+                            </Typography>
                             <TasksWrapper>
 
                                 {
@@ -62,9 +75,6 @@ const Edit = () => {
                                         />
                                     ))
                                 }
-
-                                
-
 
                             </TasksWrapper>
 

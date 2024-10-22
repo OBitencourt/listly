@@ -10,7 +10,7 @@ export const StyledBox = styled.div<{$isBig: boolean}>`
     
 
     ${({ $isBig }) => $isBig ? `
-        height: 450px;
+        
     ` : `
         height: 200px;
     `}

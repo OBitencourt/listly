@@ -15,7 +15,7 @@ export const StyledNav = styled.nav`
     display: flex;
     justify-content: space-between;
     padding: 2px;
-    border-radius: 50px / 60px;
+    border-radius: 50px / 50px;
     
 `
 
