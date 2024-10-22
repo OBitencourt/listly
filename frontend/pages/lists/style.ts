@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button<{$isCancel: boolean}>`
-    width: 100px;
+
     padding: 10px;
     background-color: lightgreen;
     display: block;

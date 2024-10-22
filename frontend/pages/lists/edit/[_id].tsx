@@ -2,14 +2,14 @@
 import { Container, Grid, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { StyledBox, StyledButton, TasksWrapper } from "./style";
+import { StyledBox,  TasksWrapper } from "./style";
 import TasksCard from "@/src/components/Tasks/TasksCard";
 import axios from "axios";
+import TaskModal from "@/src/components/Modals/TaskModal";
 
 
 interface Tasks {
     _id: string
-    tasks: string[]; // 
     task: string
     createdAt: string; // Data de criação da lista
 }
@@ -17,7 +17,7 @@ interface Tasks {
 
 const Edit = () => {
     const router = useRouter();
-    const { _id } = router.query; // Pegando o _id da URL
+    const { _id = "" } = router.query; // Pegando o _id da URL
     console.log(_id)
 
     const [tasks, setTasks] = useState<Tasks[]>([])
@@ -26,8 +26,7 @@ const Edit = () => {
 
         axios.get(`http://localhost:8080/listly/lists/${_id}`)
             .then(response => {
-
-                
+               
                 const data = response.data
 
                 const listTitle = data[0].title
@@ -78,9 +77,9 @@ const Edit = () => {
 
                             </TasksWrapper>
 
-                            <StyledButton>
-                                Adicionar tarefa
-                            </StyledButton>
+                            
+
+                            <TaskModal id={_id as string}/>
 
                         </StyledBox>
                     </Grid>
