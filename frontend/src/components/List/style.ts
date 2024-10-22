@@ -25,3 +25,8 @@ export const ListCard = styled.div`
     align-items: center;
     margin-top: 5px;
 `
+
+export const Actions = styled.div`
+    display: flex;
+    justify-content: center;
+`

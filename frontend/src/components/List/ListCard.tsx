@@ -1,6 +1,8 @@
 import { IconButton, Typography } from "@mui/material"
-import { ListCard } from "./style"
+import { Actions, ListCard } from "./style"
 import Image from "next/image"
+import axios from "axios"
+
 
 interface ListProps {
     title: string
@@ -9,7 +11,15 @@ interface ListProps {
 }
 
 const List = ({title,  _id}: ListProps) => {
-    
+
+    const handleDeleteList = (_id: string) => {
+        axios.delete(`http://localhost:8080/listly/lists/${_id}`)
+            .then(() => {
+                console.log('Lista deletada com sucesso')
+                
+            })
+    }
+
 
     return (
         <>
@@ -23,15 +33,31 @@ const List = ({title,  _id}: ListProps) => {
                 >
                     {title} - {_id}
                 </Typography>
-                <IconButton>
-                    <Image 
-                        src="/images/edit.svg"
-                        height={20}
-                        width={20}
-                        alt="edit"
-                    />
+                <Actions>
 
-                </IconButton>
+                    <IconButton>
+                        <Image 
+                            src="/images/edit.svg"
+                            height={20}
+                            width={20}
+                            alt="edit"
+                        />
+
+                    </IconButton>
+                    <IconButton
+                        onClick={() => handleDeleteList(_id)}
+                    >
+                        <Image 
+                            src="/images/delete.svg"
+                            height={20}
+                            width={20}
+                            alt="edit"
+                        />
+
+                    </IconButton>
+                </Actions>
+
+                
                 
             </ListCard>
                 
