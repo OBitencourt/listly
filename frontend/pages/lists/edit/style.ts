@@ -21,6 +21,9 @@ export const TasksWrapper = styled.div`
     background-color: aliceblue;
     padding: 15px;
     border-radius: .5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export const StyledButton = styled.button`

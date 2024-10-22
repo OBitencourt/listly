@@ -3,6 +3,7 @@ import { Container, Grid } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { StyledBox, StyledButton, TasksWrapper } from "./style";
+import TasksCard from "@/src/components/Tasks/TasksCard";
 
 const Edit = () => {
 
@@ -36,8 +37,9 @@ const Edit = () => {
                         <StyledBox $isBig>
                             <TasksWrapper>
 
-
-                                Conteudo - Adicionar novas tasks - Ver tasks - Editar tasks - Excluir tasks
+                                <TasksCard 
+                                    task="Estudar"
+                                />
 
 
                             </TasksWrapper>
@@ -55,7 +57,7 @@ const Edit = () => {
                         <StyledBox $isBig={false}>
 
                             Conteudo - Editar nome da lista
-                            
+
                         </StyledBox>
                     </Grid>
                 </Grid>
