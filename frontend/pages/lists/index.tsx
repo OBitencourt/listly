@@ -3,6 +3,7 @@ import List from '@/src/components/List/ListCard'; // Atualizando a importação
 import { Card } from '@/src/components/List/style';
 import axios from "axios";
 import React, { useEffect, useState } from 'react';
+import { useRouter } from "next/router";
 
 import ListModal from "@/src/components/Modals/ListModal";
 
@@ -16,6 +17,7 @@ interface List {
 }
 
 const Lists = () => {
+    const router = useRouter()
     const [lists, setLists] = useState<List[]>([]);
 
     useEffect(() => {
@@ -38,6 +40,11 @@ const Lists = () => {
                 const newListsState = lists.filter(list => list._id !== _id)
                 setLists(newListsState)
             })
+    }
+
+    const handleEditList = (_id: string) => {
+        router.push(`/lists/edit/${_id}`)
+    
     }
 
     return (
@@ -68,6 +75,7 @@ const Lists = () => {
                     title={list.title}
                     _id={list._id}  // Passando o '_id' explicitamente como prop
                     onRemove={handleDeleteList}
+                    onEditList={handleEditList}
                     />
                 ))}
                     

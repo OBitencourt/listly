@@ -9,10 +9,11 @@ interface ListProps {
     title: string
     _id: string
     onRemove: (_id: string) => void;
+    onEditList: (_id: string) => void;
     // tasks
 }
 
-const List = ({title,  _id, onRemove}: ListProps) => {
+const List = ({title,  _id, onRemove, onEditList}: ListProps) => {
 
     const [open, setOpen] = useState(false)
 
@@ -23,7 +24,13 @@ const List = ({title,  _id, onRemove}: ListProps) => {
     const handleToggleModal = () => {
 
         setOpen(!open)
+
     }
+
+    const handleEditButton = (_id: string) => {
+        onEditList(_id)
+    }
+
     return (
         <>
        
@@ -38,7 +45,9 @@ const List = ({title,  _id, onRemove}: ListProps) => {
                 </Typography>
                 <Actions>
 
-                    <IconButton>
+                    <IconButton
+                        onClick={() => handleEditButton(_id)}
+                    >
                         <Image 
                             src="/images/edit.svg"
                             height={20}
