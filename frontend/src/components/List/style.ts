@@ -11,6 +11,8 @@ export const Card = styled.div`
     align-items: center;
     border-radius: .5em;
     margin-top: 20px;
+    
+    
 `
 
 export const ListCard = styled.div`

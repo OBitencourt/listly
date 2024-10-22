@@ -31,6 +31,14 @@ const Index = () => {
                     Listly
                 </Typography>
 
+                <Typography
+                    variant="h4"
+                    component="h1"
+                    align="center"
+                    sx={{ fontFamily: 'Josefin Sans, sans-serif', fontWeight: '300', marginTop: 2, marginBottom: 5 }}
+                >
+                    O melhor web app de gerenciamento de listas
+                </Typography>
             </Container>
         </>
     )

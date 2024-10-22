@@ -4,10 +4,11 @@ import Image from "next/image"
 
 interface ListProps {
     title: string
+    _id: string
     // tasks
 }
 
-const List = ({title}: ListProps) => {
+const List = ({title,  _id}: ListProps) => {
     
 
     return (
@@ -20,7 +21,7 @@ const List = ({title}: ListProps) => {
                     component="h3"
                     sx={{ fontFamily: ' sans-serif'}}
                 >
-                    {title}
+                    {title} - {_id}
                 </Typography>
                 <IconButton>
                     <Image 
@@ -31,6 +32,7 @@ const List = ({title}: ListProps) => {
                     />
 
                 </IconButton>
+                
             </ListCard>
                 
            

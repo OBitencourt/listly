@@ -1,23 +1,25 @@
 import { Container, Typography } from "@mui/material";
-import ListCard from '@/src/components/List/ListCard';
+import List from '@/src/components/List/ListCard'; // Atualizando a importação de 'List'
 import { Card } from '@/src/components/List/style';
 import axios from "axios";
 import React, { useEffect, useState } from 'react';
+import { StyledButton } from "./style";
 
-// Definindo a estrutura de uma lista
+// Definindo a estrutura de uma lista, incluindo _id, title, tasks e createdAt
 interface List {
     _id: string;
     title: string;
+    tasks: string[]; // Array de tasks, mesmo que não seja usado agora
+    createdAt: string; // Data de criação da lista
 }
 
 const Lists = () => {
-    // Tipando o estado como um array de 'List'
     const [lists, setLists] = useState<List[]>([]);
 
     useEffect(() => {
         axios.get('http://localhost:8080/listly/lists/')
             .then(response => {
-                const data: List[] = response.data; // Garantindo que os dados sejam do tipo List[]
+                const data: List[] = response.data;
                 setLists(data);
                 console.log(data); // Verificando os dados recebidos
             })
@@ -33,7 +35,9 @@ const Lists = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 flexDirection: 'column',
-                alignItems: 'center'
+                alignItems: 'center',
+                position: 'relative',
+                height: '80vh',
             }}
         >
             <Typography
@@ -47,15 +51,16 @@ const Lists = () => {
 
             <Card>
                 {lists.map(list => (
-                    <ListCard 
-                        key={list._id}  // Usando _id como chave
-                        title={list.title}
+                    <List 
+                    key={list._id}  // React precisa da 'key', mas ela não é passada como prop
+                    title={list.title}
+                    _id={list._id}  // Passando o '_id' explicitamente como prop
                     />
                 ))}
-
-                <ListCard 
-                    title='Primeira Lista'
-                />
+                    
+                    <StyledButton>
+                        Adicionar
+                    </StyledButton>
             </Card>
         </Container>
     );
