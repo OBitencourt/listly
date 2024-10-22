@@ -4,7 +4,6 @@ import { Card } from '@/src/components/List/style';
 import axios from "axios";
 import React, { useEffect, useState } from 'react';
 
-
 import ListModal from "@/src/components/ListModal";
 
 // Definindo a estrutura de uma lista, incluindo _id, title, tasks e createdAt

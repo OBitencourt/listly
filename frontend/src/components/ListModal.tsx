@@ -6,10 +6,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { StyledButton } from '@/pages/lists/style';
+import axios from 'axios';
 
 const ListModal = () => {
 
   const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState({
+    title: ''
+  })
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -18,6 +22,24 @@ const ListModal = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    
+    const {name, value} = e.target
+    setTitle({
+        ...title,
+        [name]: value
+    })
+
+    
+  }
+  console.log(title)
+  const handleOnAddList = () => {
+    axios.post('http://localhost:8080/listly/lists', title)
+        .then(() =>{
+            handleClose()
+        })
+  }
 
   return (
     <>
@@ -30,17 +52,7 @@ const ListModal = () => {
 
         open={open}
         onClose={handleClose}
-        PaperProps={{
-          component: 'form',
-          onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-            event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            const formJson = Object.fromEntries((formData).entries());
-            const email = formJson.email;
-            console.log(email);
-            handleClose();
-          },
-        }}
+        
       >
 
         <DialogTitle>Adicione uma Lista</DialogTitle>
@@ -61,6 +73,7 @@ const ListModal = () => {
             type="text"
             fullWidth
             variant="standard"
+            onChange={handleInputChange}
           />
 
         </DialogContent>
@@ -68,7 +81,7 @@ const ListModal = () => {
         <DialogActions>
 
           <StyledButton $isCancel={true} onClick={handleClose}>Cancelar</StyledButton>
-          <StyledButton $isCancel={false} type="submit">Criar Lista</StyledButton>
+          <StyledButton $isCancel={false} type="submit" onClick={handleOnAddList}>Criar Lista</StyledButton>
 
         </DialogActions>
 
