@@ -3,7 +3,9 @@ import List from '@/src/components/List/ListCard'; // Atualizando a importação
 import { Card } from '@/src/components/List/style';
 import axios from "axios";
 import React, { useEffect, useState } from 'react';
-import { StyledButton } from "./style";
+
+
+import ListModal from "@/src/components/ListModal";
 
 // Definindo a estrutura de uma lista, incluindo _id, title, tasks e createdAt
 interface List {
@@ -58,10 +60,10 @@ const Lists = () => {
                     />
                 ))}
                     
-                    <StyledButton>
-                        Adicionar
-                    </StyledButton>
+
             </Card>
+            <ListModal />
+
         </Container>
     );
 }
