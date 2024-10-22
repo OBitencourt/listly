@@ -43,7 +43,7 @@ export const StyledButton = styled.button<{$isActive: boolean}>`
         }
     ` : `
         color: black;
-        background-color: white;
+        background-color: transparent;
         border: none;
         &:hover {
             background-color: #A9B4C2;

@@ -9,10 +9,12 @@ const ListSchema = new mongoose.Schema({
         type: Date,
         default: Date.now, // Data de criação padrão
     },
-    tasks: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'tasks', // Referência ao modelo de tarefas
-    }],
+    tasks: [
+        {
+          task: { type: String, required: true },
+          createdAt: { type: Date, default: Date.now }
+        }
+      ],
 });
 
 const ListsModel = mongoose.model('lists', ListSchema);
