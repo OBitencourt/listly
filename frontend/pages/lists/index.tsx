@@ -30,6 +30,16 @@ const Lists = () => {
             });
     }, []);
 
+    const handleDeleteList = (_id: string) => {
+        axios.delete(`http://localhost:8080/listly/lists/${_id}`)
+            .then(() => {
+                console.log('Lista deletada com sucesso')
+
+                const newListsState = lists.filter(list => list._id !== _id)
+                setLists(newListsState)
+            })
+    }
+
     return (
         <Container
             maxWidth='sm'
@@ -57,6 +67,7 @@ const Lists = () => {
                     key={list._id}  // React precisa da 'key', mas ela não é passada como prop
                     title={list.title}
                     _id={list._id}  // Passando o '_id' explicitamente como prop
+                    onRemove={handleDeleteList}
                     />
                 ))}
                     

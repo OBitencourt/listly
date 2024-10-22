@@ -1,26 +1,29 @@
 import { IconButton, Typography } from "@mui/material"
 import { Actions, ListCard } from "./style"
 import Image from "next/image"
-import axios from "axios"
+import {useState} from 'react'
+import RemoveModal from '@/src/components/Modals/RemoveModal'
 
 
 interface ListProps {
     title: string
     _id: string
+    onRemove: (_id: string) => void;
     // tasks
 }
 
-const List = ({title,  _id}: ListProps) => {
+const List = ({title,  _id, onRemove}: ListProps) => {
 
-    const handleDeleteList = (_id: string) => {
-        axios.delete(`http://localhost:8080/listly/lists/${_id}`)
-            .then(() => {
-                console.log('Lista deletada com sucesso')
-                
-            })
+    const [open, setOpen] = useState(false)
+
+    const handleConfirmModal = (_id: string) => {
+        onRemove(_id)
     }
 
+    const handleToggleModal = () => {
 
+        setOpen(!open)
+    }
     return (
         <>
        
@@ -45,7 +48,7 @@ const List = ({title,  _id}: ListProps) => {
 
                     </IconButton>
                     <IconButton
-                        onClick={() => handleDeleteList(_id)}
+                        onClick={handleToggleModal}
                     >
                         <Image 
                             src="/images/delete.svg"
@@ -57,6 +60,13 @@ const List = ({title,  _id}: ListProps) => {
                     </IconButton>
                 </Actions>
 
+                <RemoveModal 
+                    open={open}
+                    onClose={handleToggleModal}
+                    onConfirm={() => handleConfirmModal(_id)}
+                    title='Excluir lista'
+                    message={`Deseja realmente excluir essa lista? Essa ação será irreversível e irá deletar todas as tarefas dentro dela.`}
+                />
                 
                 
             </ListCard>
