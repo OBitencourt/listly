@@ -1,14 +1,35 @@
 import { IconButton } from "@mui/material"
 import { Actions, TaskBox } from "./style"
 import Image from "next/image"
+import { useState } from "react"
+import RemoveModal from '../Modals/RemoveModal'
 
 interface Tasks {
     task: string
+    id: string
+    onRemove: (id: string) => void;
 }
 
 const TasksCard = ({
-    task
+    task,
+    id,
+    onRemove,
 }: Tasks) => {
+
+    const [open, setOpen] = useState(false)
+
+    const handleConfirmModal = (id: string) => {
+        onRemove(id)
+
+
+    }
+
+    const handleToggleModal = () => {
+
+        setOpen(!open)
+
+    }
+
 
     return (
 
@@ -28,7 +49,9 @@ const TasksCard = ({
                         />
 
                     </IconButton>
-                    <IconButton>
+                    <IconButton
+                        onClick={handleToggleModal}
+                    >
                         <Image 
                             src="/images/delete.svg"
                             width={15}
@@ -39,6 +62,14 @@ const TasksCard = ({
                     </IconButton>
 
                 </Actions>
+
+                <RemoveModal
+                    open={open}
+                    onClose={handleToggleModal}
+                    onConfirm={() => handleConfirmModal(id)}
+                    title='Excluir tarefa'
+                    message={`Deseja realmente excluir essa tarefa? Essa ação será irreversível.`}
+                />
             </TaskBox>
         </>
     )

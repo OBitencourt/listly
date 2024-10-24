@@ -41,7 +41,7 @@ const List = ({title,  _id, onRemove, onEditList}: ListProps) => {
                     component="h3"
                     sx={{ fontFamily: ' sans-serif'}}
                 >
-                    {title} - {_id}
+                    - {title}
                 </Typography>
                 <Actions>
 

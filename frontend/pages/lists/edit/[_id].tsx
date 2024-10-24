@@ -18,6 +18,7 @@ interface Tasks {
 const Edit = () => {
     const router = useRouter();
     const { _id = "" } = router.query; // Pegando o _id da URL
+    
     console.log(_id)
 
     const [tasks, setTasks] = useState<Tasks[]>([])
@@ -37,6 +38,30 @@ const Edit = () => {
             })
 
     }, [_id]);
+
+    const handleDeleteTask = (taskId: string) => {
+        
+        const updatedTasks = tasks.filter((task) => task._id !== taskId);
+    
+        // Atualizar a lista no backend com a nova lista de tarefas (sem a removida)
+        
+        axios
+          .put(`http://localhost:8080/listly/lists/${_id}`, {
+            title: title,
+            tasks: updatedTasks,
+          })
+          .then(() => {
+            // Atualizar o estado no frontend para refletir a mudança
+            setTasks(updatedTasks);
+            console.log("Tarefa removida e lista atualizada com sucesso");
+
+           
+          })
+          .catch((error) => {
+            console.error("Erro ao remover a tarefa:", error);
+          });
+
+      };
 
     console.log(tasks)
 
@@ -71,6 +96,8 @@ const Edit = () => {
                                         <TasksCard 
                                             key={task._id}
                                             task={task.task}
+                                            onRemove={handleDeleteTask}
+                                            id={task._id}
                                         />
                                     ))
                                 }
