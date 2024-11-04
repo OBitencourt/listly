@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
 `
 
 export const StyledNav = styled.nav`
-    border: 1px solid black;
+    border: 1px solid #FFA500;
     background-color: transparent;
     display: flex;
     justify-content: space-between;
@@ -33,12 +33,12 @@ export const StyledButton = styled.button<{$isActive: boolean}>`
 
     ${({ $isActive }) => $isActive ? `
         color: white;
-        background-color: #5E6572;
+        background-color: #FFA500;
         border: none;
 
         &:hover {
             color: white;
-            background-color: #5E6572;
+            background-color: #FFA500;
             border: 1px solid #4b484845;
         }
     ` : `
@@ -46,7 +46,7 @@ export const StyledButton = styled.button<{$isActive: boolean}>`
         background-color: transparent;
         border: none;
         &:hover {
-            background-color: #A9B4C2;
+            background-color: #fec283;
             color: white;
         }
     `}

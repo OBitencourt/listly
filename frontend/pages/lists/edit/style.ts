@@ -7,7 +7,7 @@ export const StyledBox = styled.div<{$isBig: boolean}>`
     border-radius: .8em;
     padding: 20px;
     margin-bottom: 20px;
-    
+    box-shadow: 0px 0px 7px gray;
 
     ${({ $isBig }) => $isBig ? `
         
@@ -20,10 +20,11 @@ export const TasksWrapper = styled.div`
     height: 350px;
     background-color: aliceblue;
     padding: 15px;
-    border-radius: .5em;
+    border-radius: .4em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid lightgray;
 `
 
 export const StyledButton = styled.button`

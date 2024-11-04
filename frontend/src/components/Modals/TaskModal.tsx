@@ -57,7 +57,7 @@ const TaskModal = ({id}: TaskModal) => {
         <>
 
             <StyledButton $isCancel={false} onClick={handleClickOpen}>
-                Adicionar tarefa
+                Adicionar item
             </StyledButton>
 
             <Dialog
@@ -93,7 +93,7 @@ const TaskModal = ({id}: TaskModal) => {
                 <DialogActions>
 
                     <StyledButton $isCancel={true} onClick={handleClose}>Cancelar</StyledButton>
-                    <StyledButton $isCancel={false} type="submit" onClick={handleOnAddTask}>Adicionar Tarefa</StyledButton>
+                    <StyledButton $isCancel={false} type="submit" onClick={handleOnAddTask}>Adicionar item</StyledButton>
 
                 </DialogActions>
 

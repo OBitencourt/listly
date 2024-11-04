@@ -45,7 +45,7 @@ const ListModal = () => {
     <>
 
       <StyledButton $isCancel={false} onClick={handleClickOpen}>
-        Adicionar
+        Adicionar lista
       </StyledButton>
 
       <Dialog

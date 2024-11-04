@@ -7,7 +7,7 @@ export const StyledButton = styled.button<{$isCancel: boolean}>`
     background-color: lightgreen;
     display: block;
     margin-top: 20px;
-    border-radius: .8em;
+    border-radius: .7em;
     border: none;
     transition: all 300ms ease;
     cursor: pointer;
