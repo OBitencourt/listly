@@ -7,10 +7,12 @@ export const StyledHeader = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
+    
 `
 
 export const StyledNav = styled.nav`
-    border: 1px solid #FFA500;
+    border: 1px solid white;
     background-color: transparent;
     display: flex;
     justify-content: space-between;
@@ -32,22 +34,20 @@ export const StyledButton = styled.button<{$isActive: boolean}>`
     // display: flex;
 
     ${({ $isActive }) => $isActive ? `
-        color: white;
-        background-color: #FFA500;
+        color: #FFA500;
+        background-color: white;
         border: none;
 
         &:hover {
-            color: white;
-            background-color: #FFA500;
-            border: 1px solid #4b484845;
+            filter: brightness(0.9)
         }
     ` : `
-        color: black;
+        color: white;
         background-color: transparent;
         border: none;
         &:hover {
-            background-color: #fec283;
-            color: white;
+            background-color: #f4e7e7;
+            color: #f7ba48;
         }
     `}
 

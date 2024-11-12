@@ -11,4 +11,7 @@ export const StyledFooter = styled.footer`
     align-items: center;
     color: #FFA500;
     background-color: white;
+
+    // remover
+    
 `
