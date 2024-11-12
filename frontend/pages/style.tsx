@@ -17,6 +17,14 @@ export const StyledButton = styled.button`
     border: none;
     color: white;
     width: 182px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
+    cursor: pointer;
+    transition:  all 350ms ease;
+
+
+    &:hover{
+        transform: scale(1.05);
+        background-color: #EB960A;
+    }
 `

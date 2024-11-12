@@ -1,6 +1,8 @@
-import { Container, Grid, Typography } from "@mui/material"
-import Image from "next/image"
+import { Container, Typography } from "@mui/material"
+
 import { StyledButton, StyledGrid } from "./style"
+
+import TemplateClean from '../src/templates/Clean'
 
  // import {motion} from 'framer-motion'
 
@@ -9,51 +11,53 @@ const Index = () => {
     return (
 
         <>          
+            <TemplateClean>
 
-            <StyledGrid container >
+                <StyledGrid container >
 
-                <Container
-                    maxWidth='sm'
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}
-                >
-                    <Typography
-                        variant="h2"
-                        color="black"
+                    <Container
+                        maxWidth='sm'
                         sx={{
-                            fontFamily: 'Inria Serif'
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center'
                         }}
-                        component='h1'
-                        fontSize={95}
-                        gutterBottom
-                        fontWeight={400}
-                    >   
-                        Listly
-                    </Typography>
-                    <Typography
-                        variant="h2"
-                        color="black"
-                        align="center"
-                        sx={{
-                            fontFamily: 'Inria Serif',
-                            marginBottom: 10
-                        }}
-                        component='h1'
-                        fontSize={30}
-                        fontWeight={300}
-                        
-                    >   
-                        Onde suas ideias encontram organização.
-                    </Typography>
-                    <StyledButton>
-                        Comece já!
-                    </StyledButton>
-                </Container>
-            </StyledGrid>
+                    >
+                        <Typography
+                            variant="h2"
+                            color="black"
+                            sx={{
+                                fontFamily: 'Inria Serif'
+                            }}
+                            component='h1'
+                            fontSize={95}
+                            gutterBottom
+                            fontWeight={400}
+                        >   
+                            Listly
+                        </Typography>
+                        <Typography
+                            variant="h2"
+                            color="black"
+                            align="center"
+                            sx={{
+                                fontFamily: 'Inria Serif',
+                                marginBottom: 10
+                            }}
+                            component='h1'
+                            fontSize={30}
+                            fontWeight={300}
+                            
+                        >   
+                            Onde suas ideias encontram organização.
+                        </Typography>
+                        <StyledButton>
+                            Comece já!
+                        </StyledButton>
+                    </Container>
+                </StyledGrid>
+            </TemplateClean>
         </>
     )
 }

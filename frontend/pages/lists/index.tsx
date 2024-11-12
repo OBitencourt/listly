@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 
 import ListModal from "@/src/components/Modals/ListModal";
 
+import TemplateDefault from '../../src/templates/Default'
+
 // Definindo a estrutura de uma lista, incluindo _id, title, tasks e createdAt
 
 interface List {
@@ -48,42 +50,46 @@ const Lists = () => {
     }
 
     return (
-        <Container
-            maxWidth='sm'
-            sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                flexDirection: 'column',
-                alignItems: 'center',
-                position: 'relative',
-                height: '80vh',
-            }}
-        >
-            <Typography
-                variant="h3"
+
+        <TemplateDefault>
+
+            <Container
+                maxWidth='sm'
                 sx={{
-                    fontFamily: 'Josefin Sans, sans-serif'
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    position: 'relative',
+                    height: '80vh',
                 }}
             >
-                Veja suas Listas
-            </Typography>
+                <Typography
+                    variant="h3"
+                    sx={{
+                        fontFamily: 'Josefin Sans, sans-serif'
+                    }}
+                >
+                    Veja suas Listas
+                </Typography>
 
-            <Card>
-                {lists.map(list => (
-                    <List 
-                    key={list._id}  // React precisa da 'key', mas ela não é passada como prop
-                    title={list.title}
-                    _id={list._id}  // Passando o '_id' explicitamente como prop
-                    onRemove={handleDeleteList}
-                    onEditList={handleEditList}
-                    />
-                ))}
-                    
+                <Card>
+                    {lists.map(list => (
+                        <List 
+                        key={list._id}  // React precisa da 'key', mas ela não é passada como prop
+                        title={list.title}
+                        _id={list._id}  // Passando o '_id' explicitamente como prop
+                        onRemove={handleDeleteList}
+                        onEditList={handleEditList}
+                        />
+                    ))}
+                        
 
-            </Card>
-            <ListModal />
+                </Card>
+                <ListModal />
 
-        </Container>
+            </Container>
+        </TemplateDefault>
     );
 }
 

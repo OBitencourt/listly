@@ -13,5 +13,6 @@ export const StyledFooter = styled.footer`
     background-color: white;
 
     // remover
-    
+    position: absolute;
+    bottom: 0;
 `
