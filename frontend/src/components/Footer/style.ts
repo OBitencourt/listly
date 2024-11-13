@@ -12,7 +12,4 @@ export const StyledFooter = styled.footer`
     color: #FFA500;
     background-color: white;
 
-    // remover
-    position: absolute;
-    bottom: 0;
 `

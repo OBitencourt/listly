@@ -6,7 +6,11 @@ export const StyledGrid = styled(Grid)`
     
     padding: 30px;
     color: white;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 `
 export const StyledButton = styled.button`
 

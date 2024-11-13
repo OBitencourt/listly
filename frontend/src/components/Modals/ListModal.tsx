@@ -5,7 +5,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { StyledButton } from '@/pages/lists/style';
+import { StyledConfirmButton, StyledCancelButton, StyledButton } from './style';
+
 import axios from 'axios';
 
 const ListModal = () => {
@@ -44,8 +45,8 @@ const ListModal = () => {
   return (
     <>
 
-      <StyledButton $isCancel={false} onClick={handleClickOpen}>
-        Adicionar lista
+      <StyledButton  onClick={handleClickOpen}>
+        Criar lista
       </StyledButton>
 
       <Dialog
@@ -64,7 +65,7 @@ const ListModal = () => {
           </DialogContentText>
 
           <TextField
-            autoFocus
+            
             required
             margin="dense"
             id="title"
@@ -72,7 +73,7 @@ const ListModal = () => {
             label="Nome da Lista"
             type="text"
             fullWidth
-            variant="standard"
+            variant="filled"
             onChange={handleInputChange}
           />
 
@@ -80,8 +81,8 @@ const ListModal = () => {
 
         <DialogActions>
 
-          <StyledButton $isCancel={true} onClick={handleClose}>Cancelar</StyledButton>
-          <StyledButton $isCancel={false} type="submit" onClick={handleOnAddList}>Criar Lista</StyledButton>
+          <StyledCancelButton onClick={handleClose}>Cancelar</StyledCancelButton>
+          <StyledConfirmButton type="submit" onClick={handleOnAddList}>Criar Lista</StyledConfirmButton>
 
         </DialogActions>
 

@@ -54,7 +54,7 @@ const Lists = () => {
         <TemplateDefault>
 
             <Container
-                maxWidth='sm'
+                maxWidth='xs'
                 sx={{
                     display: 'flex',
                     justifyContent: 'center',
@@ -67,8 +67,9 @@ const Lists = () => {
                 <Typography
                     variant="h3"
                     sx={{
-                        fontFamily: 'Josefin Sans, sans-serif'
+                        fontFamily: 'Inria Serif, sans-serif'
                     }}
+                    gutterBottom
                 >
                     Veja suas Listas
                 </Typography>

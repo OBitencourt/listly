@@ -5,7 +5,7 @@ import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
-import { StyledButton } from '@/pages/lists/style'
+import { StyledConfirmButton, StyledCancelButton } from './style'
 
 interface ModalProps {
     open: boolean;
@@ -46,10 +46,10 @@ const ModalConfirm = ({
         
         <DialogActions>
 
-          <StyledButton $isCancel onClick={onClose}>Cancelar</StyledButton>
-          <StyledButton $isCancel={false} onClick={onConfirm} autoFocus>
+          <StyledCancelButton  onClick={onClose}>Cancelar</StyledCancelButton>
+          <StyledConfirmButton  onClick={onConfirm} >
             Confirmar
-          </StyledButton>
+          </StyledConfirmButton>
         </DialogActions>
 
       </Dialog>

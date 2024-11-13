@@ -4,9 +4,13 @@ import { StyledButton, StyledGrid } from "./style"
 
 import TemplateClean from '../src/templates/Clean'
 
- // import {motion} from 'framer-motion'
+// import {motion} from 'framer-motion'
+
+import { useRouter } from "next/router"
 
 const Index = () => {
+
+    const router = useRouter()
 
     return (
 
@@ -52,7 +56,11 @@ const Index = () => {
                         >   
                             Onde suas ideias encontram organização.
                         </Typography>
-                        <StyledButton>
+                        <StyledButton
+                            onClick={() => {
+                                router.push('/lists')
+                            }}
+                        >
                             Comece já!
                         </StyledButton>
                     </Container>

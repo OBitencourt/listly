@@ -5,11 +5,11 @@ import styled from "styled-components";
 export const Card = styled.div`
     width: 100%;
     background-color: white;
-    padding: 20px;
+    padding: 15px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: .5em;
+    border-radius: 24px;
     margin-top: 20px;
     
     
@@ -17,9 +17,10 @@ export const Card = styled.div`
 
 export const ListCard = styled.div`
     width: 95%;
-    background-color: #EEF1EF;
-    padding: 15px;
-    border-radius: .8em;
+    background-color: #F59D0C;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
     display: flex;
     justify-content: space-between;
     align-items: center;

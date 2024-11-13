@@ -58,12 +58,13 @@ const List = ({title,  _id, onRemove, onEditList}: ListProps) => {
                     </IconButton>
                     <IconButton
                         onClick={handleToggleModal}
+                        
                     >
                         <Image 
                             src="/images/delete.svg"
                             height={20}
                             width={20}
-                            alt="edit"
+                            alt="delete"
                         />
 
                     </IconButton>
