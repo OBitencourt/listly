@@ -2,11 +2,11 @@
 import { Container, Grid, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { StyledBox,  TasksWrapper } from "./style";
+import { EditListBox, StyledBox,  TasksWrapper } from "./style";
 import TasksCard from "@/src/components/Tasks/TasksCard";
 import axios from "axios";
 import TaskModal from "@/src/components/Modals/TaskModal";
-
+import TemplateDefault from "@/src/templates/Default";
 
 interface Tasks {
     _id: string
@@ -67,64 +67,78 @@ const Edit = () => {
 
     return (
         <>
+            <TemplateDefault>
 
-            <Container 
-                maxWidth='md'
-                sx={{display: 'flex'}}
-                
-            >
-                <Grid spacing={2} container>
-
-                    <Grid
-                        item
-                        md={8}
+                <Container 
+                    maxWidth='md'
+                    sx={{
+                        height: '90vh',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        flexDirection: 'column'
+                    }}
+                    
+                >   
+                    <Typography
+                        variant="h4"
+                        sx={{
+                            fontFamily: 'Inria Serif',
+                            ml: 1
+                        }}
+                        gutterBottom
                     >
-                        <StyledBox $isBig>
-                            <Typography
-                                variant="h5"
-                                sx={{
-                                    margin: 1
-                                }}
-                            >
-                                {title}
+                        {title}
 
-                            </Typography>
-                            <TasksWrapper>
+                    </Typography>
+                    
+                    <Grid container spacing={3}>
+                        <Grid item md={8}>
+                            <StyledBox>
 
-                                {
-                                    tasks.map(task => (
-                                        <TasksCard 
-                                            key={task._id}
-                                            task={task.task}
-                                            onRemove={handleDeleteTask}
-                                            id={task._id}
-                                        />
-                                    ))
-                                }
+                                <TasksWrapper>
+                                    {
+                                        tasks.map(task => (
+                                            <TasksCard 
+                                                key={task._id}
+                                                task={task.task}
+                                                onRemove={handleDeleteTask}
+                                                id={task._id}
+                                            />
+                                        ))
+                                    }
+                                </TasksWrapper>
+                                <TaskModal id={_id as string}/>
+                            </StyledBox>
+                        </Grid>
+                        <Grid item md={4}>
+                            <EditListBox>
 
-                            </TasksWrapper>
-
-                            
-
-                            <TaskModal id={_id as string}/>
-
-                        </StyledBox>
+                            </EditListBox>
+                        </Grid>
                     </Grid>
-                    <Grid
-                        item
-                        md={4}
-                    >
-                        <StyledBox $isBig={false}>
-
-                            Conteudo - Editar nome da lista
-
-                        </StyledBox>
-                    </Grid>
-                </Grid>
-
-            </Container>
+                </Container>
+            </TemplateDefault>
         </>
     )
 }
 
 export default Edit
+
+//
+
+/*
+
+    {
+                                        tasks.map(task => (
+                                            <TasksCard 
+                                                key={task._id}
+                                                task={task.task}
+                                                onRemove={handleDeleteTask}
+                                                id={task._id}
+                                            />
+                                        ))
+                                    }
+    POR DENTRO DO TASK WRAPPER
+
+    <TaskModal id={_id as string}/>
+*/

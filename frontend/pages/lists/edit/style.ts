@@ -1,26 +1,31 @@
 
 import styled from "styled-components";
 
-export const StyledBox = styled.div<{$isBig: boolean}>`
+export const StyledBox = styled.div`
     width: 100%;
     background-color: white;
-    border-radius: .8em;
+    border-radius: 24px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0px 0px 7px gray;
-
-    ${({ $isBig }) => $isBig ? `
-        
-    ` : `
-        height: 200px;
-    `}
+  
 `
 
 export const TasksWrapper = styled.div`
     height: 350px;
-    background-color: aliceblue;
-    padding: 15px;
-    border-radius: .4em;
+    background-color: #F59D0C;
+    padding: 12px;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid lightgray;
+`
+
+export const EditListBox = styled.div`
+    height: 100px;
+    background-color: white;
+    padding: 12px;
+    border-radius: 13px;
     display: flex;
     flex-direction: column;
     align-items: center;

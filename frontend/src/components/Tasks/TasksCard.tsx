@@ -42,7 +42,7 @@ const TasksCard = ({
                 <Actions>
                     <IconButton>
                         <Image 
-                            src="/images/edit.svg"
+                            src="/images/edit-black.svg"
                             width={15}
                             height={15}
                             alt='edit task'
@@ -53,7 +53,7 @@ const TasksCard = ({
                         onClick={handleToggleModal}
                     >
                         <Image 
-                            src="/images/delete.svg"
+                            src="/images/delete-black.svg"
                             width={15}
                             height={15}
                             alt='delete task'

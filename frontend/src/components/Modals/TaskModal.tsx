@@ -7,7 +7,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { StyledButton } from '@/pages/lists/style';
+import { StyledListButton, StyledCancelButton, StyledConfirmButton } from './style';
 import axios from 'axios';
 
 
@@ -56,9 +56,9 @@ const TaskModal = ({id}: TaskModal) => {
 
         <>
 
-            <StyledButton $isCancel={false} onClick={handleClickOpen}>
+            <StyledListButton onClick={handleClickOpen}>
                 Adicionar item
-            </StyledButton>
+            </StyledListButton>
 
             <Dialog
 
@@ -92,8 +92,8 @@ const TaskModal = ({id}: TaskModal) => {
 
                 <DialogActions>
 
-                    <StyledButton $isCancel={true} onClick={handleClose}>Cancelar</StyledButton>
-                    <StyledButton $isCancel={false} type="submit" onClick={handleOnAddTask}>Adicionar item</StyledButton>
+                    <StyledCancelButton onClick={handleClose}>Cancelar</StyledCancelButton>
+                    <StyledConfirmButton type="submit" onClick={handleOnAddTask}>Adicionar item</StyledConfirmButton>
 
                 </DialogActions>
 

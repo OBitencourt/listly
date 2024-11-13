@@ -39,7 +39,7 @@ const List = ({title,  _id, onRemove, onEditList}: ListProps) => {
                 <Typography
                     variant="body1"
                     component="h3"
-                    sx={{ fontFamily: ' sans-serif'}}
+                    sx={{ fontFamily: 'Inria Sans'}}
                 >
                     - {title}
                 </Typography>
